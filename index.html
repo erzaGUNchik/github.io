@@ -2,26 +2,34 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Europe Travel VR</title>
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <title>The Last Stronghold</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   </head>
   <body>
-    <a-scene>
+    <!-- Сцена A-Frame -->
+    <a-scene renderer="colorManagement: true;">
+      <!-- Активы -->
+      <a-assets>
+        <!-- Загрузка модели -->
+        <a-asset-item id="stronghold-model" src="assets/models/the_last_stronghold_animated.glb"></a-asset-item>
+      </a-assets>
+
       <!-- Камера -->
-      <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+      <a-entity camera position="0 1.6 3" look-controls wasd-controls></a-entity>
 
       <!-- Освещение -->
-      <a-entity light="type: ambient; color: #BBB"></a-entity>
-      <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-1 1 0"></a-entity>
+      <a-entity light="type: ambient; color: #888"></a-entity>
+      <a-entity light="type: directional; color: #FFF; intensity: 1" position="-1 2 1"></a-entity>
 
-      <!-- Земля -->
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+      <!-- Модель -->
+      <a-entity 
+        gltf-model="#stronghold-model" 
+        position="0 0 -5" 
+        scale="1 1 1">
+      </a-entity>
 
       <!-- Небо -->
       <a-sky color="#ECECEC"></a-sky>
-
-      <!-- Эйфелева башня -->
-      <a-entity gltf-model="assets/models/eiffel_tower.glb" position="0 0 -4" scale="0.1 0.1 0.1"></a-entity>
     </a-scene>
   </body>
 </html>
